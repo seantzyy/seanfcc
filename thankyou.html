@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: "Courier";
+      background-color: #fff5e4;
+      color: #ff9494;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    #thankyou {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      position: relative;
+    }
+
+    .envelope-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 230px;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      border-top: 130px solid #ecdeb8;
+      border-right: 150px solid transparent;
+      border-left: 150px solid transparent;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform-origin: top;
+    }
+
+    .envelope::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      border-top: 130px solid transparent;
+      border-right: 150px solid #e6cfa7;
+      border-left: 150px solid #e6cfa7;
+      border-bottom: 100px solid #e6cfa7;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .letter {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 60%;
+      height: 80%;
+      background: #fff;
+      transform: translateX(-50%);
+      padding: 20px 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      overflow-y: auto;
+      transition: bottom 0.8s ease-in-out, transform 0.8s ease-in-out;
+    }
+
+    .text {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    /* Heart Styling */
+    .heart {
+      position: absolute;
+      top: 90px;
+      left: 140px;
+      width: 40px;
+      height: 40px;
+      background: red;
+      transform: rotate(-45deg);
+      z-index: 3;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -20px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 20px;
+    }
+
+    /* Smooth Transition when Opening */
+    .flap .envelope::before,
+    .flap .envelope::after {
+      opacity: 0.1;
+    }
+
+    .flap .letter {
+      bottom: 110px;
+      transform: translateX(-50%) scale(1.6);
+      z-index: 2;
+    }
+
+    .flap .heart {
+      transform: scale(1.2);
+    }
+
+    h1 {
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 10px;
+      font-family: "courier";
+      background-color: #ffe3e1;
+      color: #e67373;
+      border-radius: 12px;
+      border: 2px solid #ffe3e1;
+      box-shadow: 1px 1px 2px #ff9494;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ff9494;
+      color: #ffe3e1;
+      border: 2px solid #ff9494;
+      box-shadow: 1px 1px 2px #ffe3e1;
+    }
+  </style>
+</head>
+<body>
+  <div id="thankyou"><b>Thank you</b></div>
+  <div class="container">
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <div class="letter">
+          <div class="text">
+            <strong>Dear Tita,</strong>
+            <p>
+              Happy Women's Month po Tita! I hope this website reaches you well and 
+              that you and your family are doing great. I wanted to ask for your 
+              approval po if it would be okay for me to come over tomorrow, but of course, 
+              only if it works for you po and if you think it’s appropriate. Below po is the timeline of events, 
+              but of course, I’d love to hear your thoughts po if there’s anything you’d like me to adjust. 
+              Please let me know what you think, Tita. Thank you so much po!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="heart"></div>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.querySelector('.envelope-wrapper');
+    envelope.addEventListener('click', () => {
+      envelope.classList.toggle('flap');
+    });
+  </script>
+
+  <h1>Planned Events for the Day</h1>
+  <ul>
+    <li><strong>1:00 PM - 1:30 PM:</strong>My estimated arrival time</li>
+    <li><strong>1:30 PM - 4:30 PM:</strong>Finish the painting with Angel</li>
+    <li><strong>5:00 PM - 6:00 PM:</strong>Attend Sunday Mass together</li>
+    <li><strong>6:00 PM - 7:30 PM:</strong>Continue painting after mass</li>
+  </ul>
+  <button class="button" onclick="location.href='lastpage.html'">
+    Click me :))
+  </button>
+</body>
+</html>
